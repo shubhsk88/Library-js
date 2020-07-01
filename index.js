@@ -13,8 +13,8 @@ function Book(
   this.read = read;
   this.image = image;
   this.info = function () {
-    return `${title} by ${author}, ${pages} pages ${
-      read ? 'reading' : 'not read yet'
+    return `${this.title} by ${this.author}, ${this.pages} pages ${
+      this.read ? 'reading' : 'not read yet'
     }`;
   };
 }
@@ -31,10 +31,18 @@ const render = () => {
     let li = document.createElement('li');
     li.setAttribute('id', num.title);
     let deleteButton = document.createElement('button');
-
+    let changeRead = document.createElement('button');
     deleteButton.textContent = 'Delete';
+    changeRead.textContent = 'Read?';
+
+    changeRead.addEventListener('click', () => {
+      num.read = !num.read;
+      console.log(num.read);
+      render();
+    })
 
     li.textContent = num.info();
+    li.appendChild(changeRead);
     deleteButton.addEventListener('click', function () {
       myLibrary = myLibrary.filter((removal) => removal.title !== num.title);
       render();
