@@ -1,4 +1,4 @@
-const myLibrary = ['Hi', 'razor'];
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -17,17 +17,32 @@ const render = () => {
   let ul = document.createElement('ul');
   myLibrary.forEach((num) => {
     let li = document.createElement('li');
-    li.textContent = num;
+    li.textContent = num.info();
     ul.appendChild(li);
   });
 
   root.appendChild(ul);
 };
+
 const button = document.querySelector('.button');
 
-button.addEventListener('click', function () {});
+button.addEventListener('click', function () {
+  let form = document.querySelector('.form');
+  form.classList.toggle('block');
+});
 
-// let tags = myLibrary.reduce((acc, num) => (acc += `<li>${num}</li>`), '');
-// console.log(`<ul>${tags}</ul>`);
+const form_button = document.querySelector('.form-submit');
+form_button.addEventListener('click', (event) => {
+  event.preventDefault();
+  let title = document.getElementById('title').value;
+  let author = document.getElementById('author').value;
+  let pages = document.getElementById('pages').value;
+  let read = document.getElementById('read').checked;
 
-// root.innerHTML = `<ul>${tags}</ul>`;
+  let book = new Book(title, author, pages, read);
+  myLibrary.push(book);
+  render();
+})
+
+
+
