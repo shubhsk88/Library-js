@@ -7,6 +7,12 @@
   background: white;
 }
 
+.close-form-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .container-1 {
   display: none;
   position: absolute;
