@@ -2,32 +2,76 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Library</title>
   </head>
-  <body>
-    Hello,Minglecups
+  <body class="bg-blue-200">
+    <div class="text-4xl font-bold text-center p-4 text-blue-800">
+      Library For Developers
+    </div>
     <div class="rooter"></div>
-    <button class="button">Add Books</button>
-    <form class="form">
-      <input type="text" name="author" placeholder="author" id="author" />
-      <input type="text" name="title" placeholder="title" id="title" />
-      <input
-        type="text"
-        name="image"
-        placeholder="image_link"
-        id="image_link"
-      />
-      <input
-        type="number"
-        name="pages"
-        placeholder="Number of pages"
-        id="pages"
-      />
-      <input type="checkbox" name="read" value="read" id="read" />Read?
-      <button type="submit" class="form-submit">Add Book</button>
-    </form>
+
+    <button
+      class="button text-5xl text-center px-4 py-1 rounded-full transform scale-100 focus:outline-none hover:scale-110 block max-w-sm mx-auto my-12 bg-blue-400 text-white hover:text-blue-800 outline-none"
+    >
+      <i class="fas fa-plus"></i>
+    </button>
+    <div class="container-1">
+      <form class="form p-4 flex shadow-lg rounded flex-col">
+        <input
+          class="p-2 my-2 bg-gray-300 border rounded-lg focus:outline-none focus:border-blue-800"
+          type="text"
+          name="author"
+          placeholder="author"
+          id="author"
+        />
+        <input
+          class="p-2 my-2 bg-gray-300 border rounded-lg focus:outline-none focus:border-blue-800"
+          type="text"
+          name="title"
+          placeholder="title"
+          id="title"
+        />
+        <input
+          class="p-2 my-2 bg-gray-300 border rounded-lg focus:outline-none focus:border-blue-800"
+          type="text"
+          name="image"
+          placeholder="image_link"
+          id="image_link"
+        />
+        <input
+          class="p-2 my-2 bg-gray-300 rounded-lg border focus:outline-none focus:border-blue-800"
+          type="number"
+          name="pages"
+          placeholder="Number of pages"
+          id="pages"
+        />
+        <div class="my-2">
+          <input
+            class="py-2 mx-2 px-2"
+            type="checkbox"
+            name="read"
+            value="read"
+            id="read"
+          /><span>Read?</span>
+        </div>
+        <button
+          type="submit"
+          class="form-submit rounded-lg max-w-1/2 mx-auto shadowed bg-blue-800 hover:bg-blue-700 px-4 py-2 text-white"
+        >
+          Add Book
+        </button>
+      </form>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

@@ -50,7 +50,7 @@ const render = () => {
 let button = document.querySelector('.button');
 
 button.addEventListener('click', function () {
-  let form = document.querySelector('.form');
+  let form = document.querySelector('.container-1');
   form.classList.toggle('block');
 });
 
