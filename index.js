@@ -30,7 +30,7 @@ const render = () => {
   myLibrary.forEach((num) => {
     let li = document.createElement('li');
     li.setAttribute('id', num.title);
-    li.classList.add('py-4')
+    li.classList.add('m-4')
     let deleteButton = document.createElement('button');
     let changeRead = document.createElement('button');
     deleteButton.textContent = 'Delete';
@@ -56,8 +56,6 @@ const render = () => {
     changeRead.addEventListener('click', () => {
       num.read = !num.read;
       changeRead.textContent = num.read ? 'Unread' : 'Read';
-
-      console.log(num.read);
       render();
     });
 
@@ -76,24 +74,30 @@ const render = () => {
 };
 
 let button = document.querySelector('.button');
-let form = document.querySelector('.container-1');
+let container = document.querySelector('.container-1');
 button.addEventListener('click', function () {
-  form.classList.toggle('block');
+  container.classList.toggle('block');
 });
+
+const closeFormBtn = document.querySelector('.close-form-btn');
+closeFormBtn.addEventListener('click', function (event) {
+  container.classList.toggle('block');
+})
 
 const form_button = document.querySelector('.form-submit');
 form_button.addEventListener('click', (event) => {
-  form.classList.toggle('block');
-  // console.log(form.classList);
-  event.preventDefault();
   let title = document.getElementById('title').value;
   let author = document.getElementById('author').value;
   let pages = document.getElementById('pages').value;
   let read = document.getElementById('read').checked;
   let image_link = document.getElementById('image_link').value;
 
-  addBooksToLibrary(title, author, pages, read, image_link);
+  if(title != '' && author != '' && pages != ''){
+    event.preventDefault();
+    addBooksToLibrary(title, author, pages, read, image_link);
 
-  render();
-  document.querySelector('.form').reset();
+    render();
+    document.querySelector('.form').reset();
+    container.classList.toggle('block');
+  }    
 });
