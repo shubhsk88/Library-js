@@ -5,34 +5,32 @@ function Book(
   author,
   pages,
   read,
-  image = 'https://images.unsplash.com/photo-1593382025255-1a4b52884b96?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
+  image = 'https://images.unsplash.com/photo-1593382025255-1a4b52884b96?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
 ) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
   this.image = image;
-  this.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages ${
-      this.read ? 'reading' : 'not read yet'
-    }`;
-  };
+  this.info = () => `${this.title} by ${this.author}, ${this.pages} pages ${
+    this.read ? 'reading' : 'not read yet'
+  }`;
 }
 
 function addBooksToLibrary(title, author, pages, read, image) {
-  let bookey = new Book(title, author, pages, read, image);
+  const bookey = new Book(title, author, pages, read, image);
   myLibrary.push(bookey);
 }
 const render = () => {
-  let root = document.querySelector('.rooter');
+  const root = document.querySelector('.rooter');
   root.textContent = '';
-  let ul = document.createElement('ul');
+  const ul = document.createElement('ul');
   myLibrary.forEach((num) => {
-    let li = document.createElement('li');
+    const li = document.createElement('li');
     li.setAttribute('id', num.title);
-    li.classList.add('m-4')
-    let deleteButton = document.createElement('button');
-    let changeRead = document.createElement('button');
+    li.classList.add('m-4');
+    const deleteButton = document.createElement('button');
+    const changeRead = document.createElement('button');
     deleteButton.textContent = 'Delete';
     changeRead.classList.add(
       'bg-blue-800',
@@ -40,7 +38,7 @@ const render = () => {
       'py-2',
       'text-white',
       'mx-2',
-      'rounded'
+      'rounded',
     );
     changeRead.textContent = num.read ? 'Unread' : 'Read';
 
@@ -50,7 +48,7 @@ const render = () => {
       'px-4',
       'py-2',
       'mx-2',
-      'rounded'
+      'rounded',
     );
 
     changeRead.addEventListener('click', () => {
@@ -61,7 +59,7 @@ const render = () => {
 
     li.textContent = num.info();
     li.appendChild(changeRead);
-    deleteButton.addEventListener('click', function () {
+    deleteButton.addEventListener('click', () => {
       myLibrary = myLibrary.filter((removal) => removal.title !== num.title);
       render();
     });
@@ -73,31 +71,31 @@ const render = () => {
   root.appendChild(ul);
 };
 
-let button = document.querySelector('.button');
-let container = document.querySelector('.container-1');
-button.addEventListener('click', function () {
+const button = document.querySelector('.button');
+const container = document.querySelector('.container-1');
+button.addEventListener('click', () => {
   container.classList.toggle('block');
 });
 
 const closeFormBtn = document.querySelector('.close-form-btn');
-closeFormBtn.addEventListener('click', function (event) {
+closeFormBtn.addEventListener('click', () => {
   container.classList.toggle('block');
-})
+});
 
-const form_button = document.querySelector('.form-submit');
-form_button.addEventListener('click', (event) => {
-  let title = document.getElementById('title').value;
-  let author = document.getElementById('author').value;
-  let pages = document.getElementById('pages').value;
-  let read = document.getElementById('read').checked;
-  let image_link = document.getElementById('image_link').value;
+const formButton = document.querySelector('.form-submit');
+formButton.addEventListener('click', (event) => {
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const pages = document.getElementById('pages').value;
+  const read = document.getElementById('read').checked;
+  const imageLink = document.getElementById('image_link').value;
 
-  if(title != '' && author != '' && pages != ''){
+  if (title !== '' && author !== '' && pages !== '') {
     event.preventDefault();
-    addBooksToLibrary(title, author, pages, read, image_link);
+    addBooksToLibrary(title, author, pages, read, imageLink);
 
     render();
     document.querySelector('.form').reset();
     container.classList.toggle('block');
-  }    
+  }
 });
