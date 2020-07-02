@@ -56,8 +56,6 @@ const render = () => {
     changeRead.addEventListener('click', () => {
       num.read = !num.read;
       changeRead.textContent = num.read ? 'Unread' : 'Read';
-
-      console.log(num.read);
       render();
     });
 
