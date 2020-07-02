@@ -30,16 +30,36 @@ const render = () => {
   myLibrary.forEach((num) => {
     let li = document.createElement('li');
     li.setAttribute('id', num.title);
+    li.classList.add('py-4')
     let deleteButton = document.createElement('button');
     let changeRead = document.createElement('button');
     deleteButton.textContent = 'Delete';
-    changeRead.textContent = 'Read?';
+    changeRead.classList.add(
+      'bg-blue-800',
+      'px-4',
+      'py-2',
+      'text-white',
+      'mx-2',
+      'rounded'
+    );
+    changeRead.textContent = num.read ? 'Unread' : 'Read';
+
+    deleteButton.classList.add(
+      'bg-red-800',
+      'text-white',
+      'px-4',
+      'py-2',
+      'mx-2',
+      'rounded'
+    );
 
     changeRead.addEventListener('click', () => {
       num.read = !num.read;
+      changeRead.textContent = num.read ? 'Unread' : 'Read';
+
       console.log(num.read);
       render();
-    })
+    });
 
     li.textContent = num.info();
     li.appendChild(changeRead);
@@ -56,14 +76,15 @@ const render = () => {
 };
 
 let button = document.querySelector('.button');
-
+let form = document.querySelector('.container-1');
 button.addEventListener('click', function () {
-  let form = document.querySelector('.container-1');
   form.classList.toggle('block');
 });
 
 const form_button = document.querySelector('.form-submit');
 form_button.addEventListener('click', (event) => {
+  form.classList.toggle('block');
+  // console.log(form.classList);
   event.preventDefault();
   let title = document.getElementById('title').value;
   let author = document.getElementById('author').value;

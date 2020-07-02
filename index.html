@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <link
       href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
       rel="stylesheet"
@@ -18,7 +19,9 @@
     <div class="text-4xl font-bold text-center p-4 text-blue-800">
       Library For Developers
     </div>
-    <div class="rooter"></div>
+    <div class="rooter">
+      <div class="flex"></div>
+    </div>
 
     <button
       class="button text-5xl text-center px-4 py-1 rounded-full transform scale-100 focus:outline-none hover:scale-110 block max-w-sm mx-auto my-12 bg-blue-400 text-white hover:text-blue-800 outline-none"
@@ -26,13 +29,14 @@
       <i class="fas fa-plus"></i>
     </button>
     <div class="container-1">
-      <form class="form p-4 flex shadow-lg rounded flex-col">
+      <form method="/post" class="form p-4 flex shadow-lg rounded flex-col">
         <input
           class="p-2 my-2 bg-gray-300 border rounded-lg focus:outline-none focus:border-blue-800"
           type="text"
           name="author"
           placeholder="author"
           id="author"
+          required
         />
         <input
           class="p-2 my-2 bg-gray-300 border rounded-lg focus:outline-none focus:border-blue-800"
@@ -40,6 +44,7 @@
           name="title"
           placeholder="title"
           id="title"
+          required
         />
         <input
           class="p-2 my-2 bg-gray-300 border rounded-lg focus:outline-none focus:border-blue-800"
@@ -47,6 +52,7 @@
           name="image"
           placeholder="image_link"
           id="image_link"
+          required
         />
         <input
           class="p-2 my-2 bg-gray-300 rounded-lg border focus:outline-none focus:border-blue-800"
@@ -54,6 +60,7 @@
           name="pages"
           placeholder="Number of pages"
           id="pages"
+          required
         />
         <div class="my-2">
           <input
@@ -64,12 +71,12 @@
             id="read"
           /><span>Read?</span>
         </div>
-        <button
+        <input
           type="submit"
           class="form-submit rounded-lg max-w-1/2 mx-auto shadowed bg-blue-800 hover:bg-blue-700 px-4 py-2 text-white"
-        >
-          Add Book
-        </button>
+          name="Add book"
+          value="Add Book"
+        />
       </form>
     </div>
     <script src="index.js"></script>
