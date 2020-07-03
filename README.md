@@ -17,7 +17,10 @@ Library provides an interface for a book collection, where the user can add new 
 
 [JS Library](https://rawcdn.githack.com/shubhsk88/Library-js/030d714c1f9150e0affeb8d2779a5aaca5fd73e2/index.html)
 
-## 👤 Authors
+## Setup
+
+- Clone this repository with: `git clone https://github.com/shubhsk88/Library-js.git`
+- Navigate to the project folder (Library-js) and open the `index.html` with the browser.
 
 ## Authors
 
@@ -25,7 +28,7 @@ Library provides an interface for a book collection, where the user can add new 
 
 - Github: [@shubhsk88](https://github.com/shubhsk88)
 - Twitter: [@shubhski](twitter.com/shubski)
-- Linkedin: [linkedin](https://www.linkedin.com/in/shubhski/)
+- Linkedin: [Shubham Singh](https://www.linkedin.com/in/shubhski/)
 
 👤 **Felipe Rosa**
 
@@ -37,7 +40,7 @@ Library provides an interface for a book collection, where the user can add new 
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/shubhsk88/Library-js/issues/).
 
 ## Show your support
 
